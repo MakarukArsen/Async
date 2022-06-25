@@ -12,13 +12,12 @@ function getRandomChinese(length) {
                 }
                 if(!result.length){
                     rej("Щось пішло не так :(");
-                }
-                if(result.length === startLength){
+                } else if(result.length === startLength){
                     res(result.join(""));
                 }
             }, 50);
     })
-    createChineseString.then((res) => {console.log(res)});
+    createChineseString.then((res) => console.log(res));
     createChineseString.catch(rej => rej);
     return createChineseString;
 }
