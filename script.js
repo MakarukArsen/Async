@@ -1,4 +1,5 @@
 function getRandomChinese(length) {
+    length = Number(length)
     const startLength = length;
     const result = [];
     const createChineseString = new Promise((res, rej) => {
@@ -9,11 +10,10 @@ function getRandomChinese(length) {
                 --length;
                 if(length > 0){
                     setTimeout(next, 50);
-                }
-                if(!result.length){
-                    rej("Щось пішло не так :(");
                 } else if(result.length === startLength){
                     res(result.join(""));
+                } else {
+                    rej("Щось пішло не так :(");
                 }
             }, 50);
     })
